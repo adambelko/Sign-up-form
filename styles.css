@@ -1,0 +1,93 @@
+html, body, div {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    display: flex;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main {
+    background-color: rgb(247, 247, 247);
+}
+
+.image {
+    width: 45vw;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1658211260722-416576a2f1ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1527&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.topText {
+    height: 28vh;
+    font-size: 1.6vw;
+    font-weight: bold;
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+.topText > p {
+    margin-top: 8vh;
+}
+
+.formContainer {
+    background-color: white;
+    height: 42vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 10px -10px rgb(195, 195, 195);
+}
+
+.formContainer > p {
+    font-size: 1.6vw;
+    font-weight: bold;
+}
+
+.input {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+input {
+    height: 2.5vh;
+    font-size: 2vh;
+    padding-left: 7px;
+    border-radius: 5px;
+    border: 2px solid rgb(211, 211, 211);
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw 6vw;
+    margin-right: 13vw;
+}
+
+.createAccount {
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+}
+
+.createAccBtn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vw;
+    margin-top: 5vh;
+    margin-left: 3vw;
+    width: 25vh;
+    height: 6vh;
+    border-radius: 10px;
+    background: rgb(152, 208, 228);
+}
+
+.createAccount > p {
+    font-size: 1.3vw;
+    margin-top: 3vh;
+    margin-left: 3vw;
+}
