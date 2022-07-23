@@ -8,7 +8,6 @@ html, body, div {
 
 .main {
     background-color: rgb(247, 247, 247);
-    
 }
 
 .image {
@@ -23,13 +22,12 @@ html, body, div {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 13vh;
+    margin-top: 16vh;
     width: 35vw;
-    height: 15vh;
+    height: 12vh;
     background: rgba(0, 0, 0, 0.1);
     color: white;
     font-size: 2vw;
-    
 }
 
 .main {
@@ -58,7 +56,7 @@ html, body, div {
 
 .formContainer {
     background-color: white;
-    height: 42vh;
+    height: 44vh;
     padding-left: 3vw;
     padding-right: 3vw;
     display: flex;
@@ -76,6 +74,7 @@ html, body, div {
     display: flex;
     flex-direction: column;
     font-weight: 500;
+    height: 7vh;
 }
 
 input {
@@ -86,20 +85,30 @@ input {
     border: 2px solid rgb(211, 211, 211);
 }
 
+input:focus {
+    border: 2px solid blue;
+    box-shadow: 10px 10px 5px -7px rgb(195, 195, 195);
+}
+
 .form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2vw 6vw;
+    gap: 2vw 5vw;
     margin-right: 13vw;
+}
+
+.error {
+    color: red;
+    font-size: 1vw;
 }
 
 .createAccount {
     display: flex;
     flex-direction: column;
-    height: 30vh;
+    height: 285vh;
 }
 
-.createAccBtn {
+.submitBtn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -110,6 +119,10 @@ input {
     height: 6vh;
     border-radius: 10px;
     background: rgb(152, 208, 228);
+}
+
+.createAccBtn:hover {
+    background: rgb(132, 200, 224);
 }
 
 .createAccount > p {
