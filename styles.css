@@ -122,7 +122,7 @@ input:focus {
     background: rgb(152, 208, 228);
 }
 
-.createAccBtn:hover {
+.submitBtn:hover {
     background: rgb(132, 200, 224);
 }
 
