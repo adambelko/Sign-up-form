@@ -1,81 +1,85 @@
 const form = document.querySelector(".signUpForm");
-const fisrtName = document.querySelector(".firstName");
+const firstName = document.querySelector(".firstName");
 const lastName = document.querySelector(".lastName");
 const email = document.querySelector(".email");
 const phoneNm = document.querySelector(".phoneNumber");
-const firstPassowrd = document.querySelector(".firstPassword");
-const confirmPassowrd = document.querySelector(".confirmPassword");
+const firstPassword = document.querySelector(".firstPassword");
+const confirmPassword = document.querySelector(".confirmPassword");
 
-const firstNameError = document.querySelector(".firstNameError");
-const lastNameError = document.querySelector(".lastNameError");
-const emailError = document.querySelector(".emailError");
-const phoneNumberError = document.querySelector(".phoneNumberError");
-const firstPassowrdError = document.querySelector(".firstPasswordError");
-const confirmPassowrdError = document.querySelector(".confirmPasswordError");
+const firstNameMsg = document.querySelector(".firstNameMsg");
+const lastNameMsg = document.querySelector(".lastNameMsg");
+const emailMsg = document.querySelector(".emailMsg");
+const phoneNumberMsg = document.querySelector(".phoneNumberMsg");
+const firstPasswordMsg = document.querySelector(".firstPasswordMsg");
+const confirmPasswordMsg = document.querySelector(".confirmPasswordMsg");
 
 
-form.addEventListener("submit", validateForm);
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    validateForm()
+});
 
-function validateForm(e) {
-    let firstNameMsg = [];
-    let lastNameMsg = [];
-    let emailMsg = [];
-    let phoneNmMsg = [];
-    let firstPwdMsg = [];
-    let confirmPwdMsg = [];
-
-    if (fisrtName.value === "" || fisrtName.value === null) {
-        firstNameMsg.push("First name is required");
+function validateForm() {
+    if (firstName.value === "") {
+        runErrorMsg(firstNameMsg, "First name is required");
+    } else {
+        runValidMsg(firstNameMsg, "");
     }
 
-    if (lastName.value === "" || lastName.value === null) {
-        lastNameMsg.push("Last name is required");
+    if (lastName.value === "") {
+        runErrorMsg(lastNameMsg, "Last name is required");
+    } else {
+        runValidMsg(lastNameMsg, "");
     }
 
-    if (email.value === "" || email.value === null) {
-        emailMsg.push("Email is required");
+    if (email.value === "") {
+        runErrorMsg(emailMsg, "Email is required");
+    } else if (validateEmail(email.value) === false) {
+        runErrorMsg(emailMsg, "Incorrect email format")
+    } else {
+        runValidMsg(emailMsg, "");
     }
 
-    if (phoneNm.value === "" || phoneNm.value === null) {
-        phoneNmMsg.push("Phone number is required");
+    if (phoneNm.value === "") {
+        runErrorMsg(phoneNumberMsg, "Phone number is required");
+    } else if (!validatePhoneNm(phoneNm.value)) {
+        runErrorMsg(phoneNumberMsg, "Phone number must contain numbers only");        
+    } else {
+        runValidMsg(phoneNumberMsg, "");
     }
 
-    if (firstPassowrd.value === "" || firstPassowrd.value === null) {
-        firstPwdMsg.push("Password is required");
+    if (firstPassword.value === "") {
+        runErrorMsg(firstPasswordMsg, "Password is required");
+    } else {
+        runValidMsg(firstPasswordMsg, "");
     }
 
-    if (confirmPassowrd.value === "" || confirmPassowrd.value === null) {
-        confirmPwdMsg.push("Password is required");
+    if (confirmPassword.value === "") {
+        runErrorMsg(confirmPasswordMsg, "Password is required");
+    } else if (firstPassword.value !== confirmPassword.value) {
+        runErrorMsg(firstPasswordMsg, "Passwords does not match");    
+        runErrorMsg(confirmPasswordMsg, "");    
+    } else {
+        runValidMsg(firstPassword, "");
     }
+}
 
-    if (firstNameMsg.length > 0) {
-        e.preventDefault()
-        firstNameError.textContent = firstNameMsg;
-        firstNameMsg.length = 0;
-    }
+function runErrorMsg(input, message) {
+    console.log(input)
+    console.log(message)
+    input.innerText = message;
+}
 
-    if (lastNameMsg.length > 0) {
-        e.preventDefault()
-        lastNameError.textContent = lastNameMsg;
-    }
+function runValidMsg(input, message) {
+    input.innerText = message;
+}
 
-    if (emailMsg.length > 0) {
-        e.preventDefault()
-        emailError.textContent = emailMsg;
-    }
+function validateEmail(input) {
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    return isValid = (input.match(validRegex)) ? true : false;
+}
 
-    if (phoneNmMsg.length > 0) {
-        e.preventDefault()
-        phoneNumberError.textContent = phoneNmMsg;
-    }
-
-    if (firstPwdMsg.length > 0) {
-        e.preventDefault()
-        firstPassowrdError.textContent = firstPwdMsg;
-    }
-
-    if (confirmPwdMsg.length > 0) {
-        e.preventDefault()
-        confirmPassowrdError.textContent = confirmPwdMsg;
-    }
-}   
+function validatePhoneNm(input) {
+    const num = /^[0-9]+$/.test(input)
+    return isValid = (num === true) ? true : false;
+}
