@@ -70,6 +70,7 @@ html, body, div {
 }
 
 .input {
+    font-size: 1.8vh;
     gap: 5px;
     display: flex;
     flex-direction: column;
@@ -79,7 +80,7 @@ html, body, div {
 
 input {
     height: 2.5vh;
-    font-size: 2vh;
+    font-size: 1.8vh;
     padding-left: 7px;
     border-radius: 5px;
     border: 2px solid rgb(211, 211, 211);
