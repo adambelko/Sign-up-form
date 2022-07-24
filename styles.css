@@ -105,7 +105,7 @@ input:focus {
 .createAccount {
     display: flex;
     flex-direction: column;
-    height: 285vh;
+    height: 28vh;
 }
 
 .submitBtn {
