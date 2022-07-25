@@ -16,7 +16,7 @@ const confirmPasswordMsg = document.querySelector(".confirmPasswordMsg");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    validateForm()
+    validateForm();
 });
 
 function validateForm() {
@@ -35,7 +35,7 @@ function validateForm() {
     if (email.value === "") {
         runErrorMsg(emailMsg, "Email is required");
     } else if (validateEmail(email.value) === false) {
-        runErrorMsg(emailMsg, "Incorrect email format")
+        runErrorMsg(emailMsg, "Incorrect email format");
     } else {
         runValidMsg(emailMsg, "");
     }
@@ -50,6 +50,8 @@ function validateForm() {
 
     if (firstPassword.value === "") {
         runErrorMsg(firstPasswordMsg, "Password is required");
+    } else if (firstPassword.value.length < 6) {
+        runErrorMsg(firstPasswordMsg, "Password must be at least 6 characters long");
     } else {
         runValidMsg(firstPasswordMsg, "");
     }
@@ -65,8 +67,6 @@ function validateForm() {
 }
 
 function runErrorMsg(input, message) {
-    console.log(input)
-    console.log(message)
     input.innerText = message;
 }
 
@@ -80,6 +80,6 @@ function validateEmail(input) {
 }
 
 function validatePhoneNm(input) {
-    const num = /^[0-9]+$/.test(input)
+    const num = /^[0-9]+$/.test(input);
     return isValid = (num === true) ? true : false;
 }
